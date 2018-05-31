@@ -1,6 +1,6 @@
 [
 	{
-		"namespace": "de.sfl.prpanic.server",
+		"namespace": "de.sfl.prpanic.server.model.avro",
 		"type": "record",
 		"name": "Repository",
 		"fields": [
@@ -11,22 +11,7 @@
 		]
 	},
 	{
-		"namespace": "de.sfl.prpanic.server",
-		"type": "record",
-		"name": "CodeClass",
-		"fields": [
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "package",
-				"type": "string"
-			}
-		]
-	},
-	{
-		"namespace": "de.sfl.prpanic.server",
+		"namespace": "de.sfl.prpanic.server.model.avro",
 		"type": "record",
 		"name": "Project",
 		"fields": [
@@ -36,19 +21,31 @@
 			},
 			{
 				"name": "repository",
-				"type": "de.sfl.prpanic.server.Repository"
-			},
-			{
-				"name": "classes",
-				"type": {
-					"type": "array",
-					"items": "de.sfl.prpanic.server.CodeClass"
-				}
+				"type": "de.sfl.prpanic.server.model.avro.Repository"
 			}
 		]
 	},
 	{
-		"namespace": "de.sfl.prpanic.server",
+		"namespace": "de.sfl.prpanic.server.model.avro",
+		"type": "record",
+		"name": "ClassIdentifier",
+		"fields": [
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "package",
+				"type": "string"
+			},
+			{
+				"name": "project",
+				"type": "de.sfl.prpanic.server.model.avro.Project"
+			}
+		]
+	},
+	{
+		"namespace": "de.sfl.prpanic.server.model.avro",
 		"type": "record",
 		"name": "ProjectMetrics",
 		"fields": [
@@ -59,7 +56,7 @@
 		]
 	},
 	{
-		"namespace": "de.sfl.prpanic.server",
+		"namespace": "de.sfl.prpanic.server.model.avro",
 		"type": "record",
 		"name": "MethodMetrics",
 		"fields": [
@@ -74,7 +71,7 @@
 		]
 	},
 	{
-		"namespace": "de.sfl.prpanic.server",
+		"namespace": "de.sfl.prpanic.server.model.avro",
 		"type": "record",
 		"name": "ClassMetrics",
 		"fields": [
@@ -86,7 +83,7 @@
 				"name": "methodMetrics",
 				"type": {
 					"type": "array",
-					"items": "de.sfl.prpanic.server.MethodMetrics"
+					"items": "de.sfl.prpanic.server.model.avro.MethodMetrics"
 				}
 			}
 		]
