@@ -1,0 +1,94 @@
+[
+	{
+		"namespace": "de.sfl.prpanic.server",
+		"type": "record",
+		"name": "Repository",
+		"fields": [
+			{
+				"name": "url",
+				"type": "string"
+			}
+		]
+	},
+	{
+		"namespace": "de.sfl.prpanic.server",
+		"type": "record",
+		"name": "CodeClass",
+		"fields": [
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "package",
+				"type": "string"
+			}
+		]
+	},
+	{
+		"namespace": "de.sfl.prpanic.server",
+		"type": "record",
+		"name": "Project",
+		"fields": [
+			{
+			  "name": "name",
+			  "type": "string"
+			},
+			{
+				"name": "repository",
+				"type": "de.sfl.prpanic.server.Repository"
+			},
+			{
+				"name": "classes",
+				"type": {
+					"type": "array",
+					"items": "de.sfl.prpanic.server.CodeClass"
+				}
+			}
+		]
+	},
+	{
+		"namespace": "de.sfl.prpanic.server",
+		"type": "record",
+		"name": "ProjectMetrics",
+		"fields": [
+			{
+				"name": "totalTransactions",
+				"type": "bytes"
+			}
+		]
+	},
+	{
+		"namespace": "de.sfl.prpanic.server",
+		"type": "record",
+		"name": "MethodMetrics",
+		"fields": [
+			{
+				"name": "methodName",
+				"type": "string"
+			},
+			{
+				"name": "transactionShare",
+				"type": "double"
+			}
+		]
+	},
+	{
+		"namespace": "de.sfl.prpanic.server",
+		"type": "record",
+		"name": "ClassMetrics",
+		"fields": [
+			{
+				"name": "className",
+				"type": "string"
+			},
+			{
+				"name": "methodMetrics",
+				"type": {
+					"type": "array",
+					"items": "de.sfl.prpanic.server.MethodMetrics"
+				}
+			}
+		]
+	}
+]
