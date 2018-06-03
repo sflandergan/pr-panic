@@ -10,7 +10,5 @@ public class CodeInvocations {
 	private final String classFqn;
 	
 	private final Map<String, Long> methodInvocations;
-	
-	
 
 }
